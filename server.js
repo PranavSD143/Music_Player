@@ -10,7 +10,7 @@ const db = new pg.Client({
   host:"localhost",
   user:"postgres",
   database:"music_player",
-  password:"devangshashi",
+  password:"",// Add your own dbms connection here
   port:5432
 });
 app.use(express.static("public"));
