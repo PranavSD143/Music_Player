@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Player</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+</head>
+
+<body>
+  <div id="main-container">
+    <div id="navigation">
+      <input type="text" id="search-field" placeholder="Search" />
+      <div id="dropdown" class="dropdown">
+        <%songs.forEach((song)=> { %>
+          <div class="dropdown-item" data-value="<%= song.name %>">
+            <%=song.name%>
+          </div>
+          <%});%>
+      </div>
+    </div>
+    <div id="display-container">
+      <div id="img-container" style="background-image: url('./assets/images/default.png');"></div>
+      <div class="music-player">
+        <div style="display: flex; gap: 15px">
+          <div id="timer">00:00</div>
+          <input type="range" id="progress" value="0" min="0" max="100" />
+        </div>
+        <div class="controls">
+          <div class="buttons">
+            <img src="./assets/images/rewind.jpg" class="button" id="rewind" />
+          </div>
+          <div class="buttons">
+            <img src="./assets/images/play.png" class="button" id="play-pause" />
+          </div>
+          <div class="buttons">
+            <img src="./assets/images/forward.jpg" class="button" id="forward" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <form action="/add" method="GET" style="text-align: center;">
+      <button type="submit" id="submit-button">Add a song URL</button>
+    </form>
+  </div>
+
+  <script>
+
+    const frontend_collection = <%-JSON.stringify(songs)%>;
+    const newMap = new Map();
+    frontend_collection.map((obj) => {
+    newMap.set(String(obj.name), String(obj.url));
+    });
+
+    window.song_collection = newMap;
+  </script>
+
+  </script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

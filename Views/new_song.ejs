@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Song</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body id="new-song">
+    <form action="add_new" method="POST" id="form-container">
+      <div>
+        <label for="song_name"> Song Name: </label>
+        <input
+          type="text"
+          placeholder="Song name"
+          name="song_name"
+          id="song-name" />
+      </div>
+      <div>
+        <label for="url"> Song URL: </label>
+        <input type="url" placeholder="Song URL" name="url" id="url" />
+      </div>
+      <button type="submit" id="submit-button2">Add Song</button>
+    </form>
+  </body>
+</html>
